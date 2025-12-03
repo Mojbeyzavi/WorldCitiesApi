@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WorldCitiesApi.Data;
@@ -25,7 +20,9 @@ namespace WorldCitiesApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<WorldCity>>> GetWorldCities()
         {
-            return await _context.WorldCities.ToListAsync();
+            return await _context.WorldCities
+                                 .OrderByDescending(c => c.Population) // ⬅️ مرتب‌سازی نزولی
+                                 .ToListAsync();
         }
 
         // GET: api/WorldCities/5
@@ -43,7 +40,6 @@ namespace WorldCitiesApi.Controllers
         }
 
         // PUT: api/WorldCities/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutWorldCity(int id, WorldCity worldCity)
         {
@@ -74,14 +70,13 @@ namespace WorldCitiesApi.Controllers
         }
 
         // POST: api/WorldCities
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<WorldCity>> PostWorldCity(WorldCity worldCity)
         {
             _context.WorldCities.Add(worldCity);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetWorldCity", new { id = worldCity.CityId }, worldCity);
+            return CreatedAtAction(nameof(GetWorldCity), new { id = worldCity.CityId }, worldCity);
         }
 
         // DELETE: api/WorldCities/5

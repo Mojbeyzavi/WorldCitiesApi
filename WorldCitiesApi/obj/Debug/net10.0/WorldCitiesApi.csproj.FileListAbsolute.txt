@@ -214,3 +214,4 @@
 /Users/mojdehbeyzavi/Desktop/lexicon/DATABASE/Project/WorldCitiesProject/WorldCitiesApi/obj/Debug/net10.0/WorldCitiesApi.pdb
 /Users/mojdehbeyzavi/Desktop/lexicon/DATABASE/Project/WorldCitiesProject/WorldCitiesApi/obj/Debug/net10.0/WorldCitiesApi.genruntimeconfig.cache
 /Users/mojdehbeyzavi/Desktop/lexicon/DATABASE/Project/WorldCitiesProject/WorldCitiesApi/obj/Debug/net10.0/ref/WorldCitiesApi.dll
+/Users/mojdehbeyzavi/Desktop/lexicon/DATABASE/Project/WorldCitiesProject/WorldCitiesApi/obj/Debug/net10.0/WorldCitiesApi.sourcelink.json
